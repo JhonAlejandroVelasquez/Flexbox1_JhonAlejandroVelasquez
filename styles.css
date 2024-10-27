@@ -1,0 +1,364 @@
+
+/* Estructura General del Contenedor Principal */
+    /* 1. Estilos Globales */
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box; /* Esto nos ayuda a no tener desbordamientos*/
+
+}
+
+#container{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;   
+    width: 90%; 
+    margin: 2vw auto;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    
+}
+
+/* Cabecera */
+/* 1. Estructura del header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    flex-direction: row;
+    height: 160px;
+    margin-bottom: 15px;
+    
+}
+
+/* 2. Logotipo */
+.logo {
+    width: 50%;
+    flex-grow: 1;
+    font-size: 1.5vw;
+    font-weight: 1000;
+    font-family: Helvetica;
+    font-style: italic;
+    padding-left: 10px;
+}
+
+
+/* 3. Menú de navegación */
+
+#menu {
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;   
+}
+
+ #menu ul{
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+}
+
+#menu li {
+    margin: 0 50px; 
+}
+
+#menu a {
+    font-size: 1.5vw;
+    transition: all 300ms;
+    text-decoration: none;
+    color: black;
+}
+
+#menu a:hover {
+    background-color: lightgray;
+    color: blue;;
+ }
+
+
+/* Contenido Principal */
+/* 1. Distribución del Contenido */
+#content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2vw; 
+} 
+
+/* 2. Barra lateral (aside */
+#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#content aside {
+    display: flex;
+    width: 15%;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 2vw;
+    min-height: 200px;
+    z-index: 1;
+}
+
+
+#content aside li{
+    margin: 20px 0;
+    width: 100%;
+}
+
+#content aside ul{
+    list-style-type: none;
+    padding: 0px;
+}
+
+#content aside h2{
+    font-size: 1.3vw;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    display: inline-block;  /* Evita que el título se parta en dos líneas */
+    white-space: nowrap;  /* Mantiene el título en una sola línea */
+    padding-top: 7px;
+    color: black;  
+}
+
+#content aside a {
+    display: block;
+    padding: 15px;
+    background-color: #EEEEEE;
+    text-align: center;
+    transition: all 300ms;
+    text-decoration: none;
+    color: black;
+}
+
+#content aside a:hover {
+    background-color: darkgray;
+}
+
+
+/* 3. Sección de Proyectos */
+
+#projects {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between; /* Para asegurarse de que las cajas se distribuyen correctamente */
+    gap: 1vw; /* Espaciado ajustado */
+    width: 100%; /* Evitar que el contenedor se desborde */
+}
+
+.project {
+    width: 20%;
+    margin: 1vw;
+    border: 1px solid lightgray;
+    box-shadow: 0 2px 4px gray;
+    transition: color 300ms, transform 300ms;
+}
+
+.project img {
+    width: 100%;
+    transition: transform 300ms;
+}
+.project a{
+    text-decoration: none;
+    color: black;
+}
+.project {
+
+    color: gray;
+}
+.project:hover img {
+    transform: scale(1.05);
+}
+.project-info{
+    display: block;
+    padding: 20px;
+}
+
+.project-info a:hover{ 
+    color: blue;
+}
+
+
+/* Pie de página */
+/* 1.Estructura del footer */ 
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vw 0;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    flex-direction: row;
+    align-items: center;
+    flex-direction: row-reverse; /*Me tocó usarlo para alinear bien el nombre y el texto "PORTAFOLIO*/
+    padding-left: 10px;
+    height: 160px;
+    margin-top: 15px;
+}
+
+footer .logo {
+    opacity: 0.5;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse; /*Me tocó usarlo para alinear bien el nombre y el texto "PORTAFOLIO*/
+    font-size: 20px;
+    width: 30%;
+    padding-right: 10px;
+}
+
+footer .info {
+    font-size: 25px;
+    padding-left: 10px;
+}
+
+/* Sombras*/
+/*Si la vista no me falla, creo que todas los bordes tienen una pequeña y ligera sombra, aquí la aplico*/
+#container,
+header,
+footer {
+    box-shadow: 0 0 2px 2px #ccc;
+}
+
+
+/* Responsividad* /
+/* 1. Adaptación a Pantallas Grandes y Medianas */
+@media (max-width: 800px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #menu a{
+        font-size: 100px;
+        justify-content: space-around;
+    }
+
+    #content {
+        flex-direction: column;
+    }
+
+    #content aside h2 {
+        font-size: 30px;
+    }
+
+    #projects {
+        justify-content: center;
+    }
+
+    .project {
+        width: 45%;
+        margin-bottom: 2vw;
+    }
+
+    #content aside {
+        width: 100%;
+        margin-bottom: 2vw;
+    }
+
+    footer .info {
+        font-size: 3vw;
+    }
+}
+
+
+/* 2. Pantallas Pequeñas (Tablets y Móviles) */
+@media (max-width: 500px) {
+    #menu {
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        justify-content: space-around;
+        
+    }
+
+    #content {
+        flex-direction: column;
+    }
+
+    #content aside h2 {
+        font-size: 15px;
+    }
+
+    .project {
+        width: 60%;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    #menu a {
+        font-size: 2vw; 
+    }
+
+    #menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .info {
+        text-align: center;
+        margin-top: 5vw;
+        font-size: 10px;
+    }
+    
+    footer .logo {
+        font-size: 10px;
+    }
+}
+
+/* NOTA --> Aunque en el ejercicio solo se pedía dos adaptaciones de pantalla, procedí a hacer
+otra debido a que, al comprobar el index.html en diferentes resoluciones, al sólo tener 2, al superar los 800px
+una parte del menú sobresalía, esto es debido a que, si nosotros disminuimos la resolucion y no su interior,
+tarde o temprano, su contenido se saldrá. Tomemos en cuenta que hay monitores de 1440px o incluso
+habrá alguno de más, con esto solo quiero mejorar el sitio web*/
+@media (max-width: 1000px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #menu a{
+        font-size: 20px;
+        justify-content: space-around;
+    }
+
+    #content {
+        flex-direction: column;
+    }
+
+    #content aside h2 {
+        font-size: 30px;
+    }
+
+    #projects {
+        justify-content: center;
+    }
+
+    .project {
+        width: 45%;
+        margin-bottom: 2vw;
+    }
+
+    #content aside {
+        width: 100%;
+        margin-bottom: 2vw;
+    }
+
+    footer .info {
+        font-size: 3vw;
+    }
+    
+    footer .logo {
+        font-size: 10px;
+    }
+}
